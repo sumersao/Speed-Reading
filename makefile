@@ -1,12 +1,12 @@
 CC = g++
-CPP_FLAGS = --std=c++17 -Wall -Werror -Wpedantic -O1 -g
+FLAGS = --std=c++17 -Wall -Werror -Wpedantic -O1
 LDLIBS = -lcurl
-CPP_FILES = segmentation.cpp get_article.cpp
+CPP_FILES = test.cpp get_article.cpp
 
 all: test
 
 test: $(CPP_FILES)
-	$(CC) $^ -o $@ $(LDLIBS)
+	$(CC) $(FLAGS) $^ -o $@ $(LDLIBS)
 
 server:
 	cd article-server && \
