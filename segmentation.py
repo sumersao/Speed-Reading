@@ -3,8 +3,12 @@ import json
 
 def segmenter(json_string):
 	string_dict = json.loads(json_string)
-	print(string_dict["sentences"][0]["text"])
-	print(string_dict["tokens"][0]["text"])
+	original_string = string_dict["sentences"][0]["text"]["content"]
+	print(original_string)
+	for i in range(0, len(string_dict["tokens"])):
+		parent = int(string_dict["tokens"][i]["dependencyEdge"]["headTokenIndex"])
+
+		print(string_dict["tokens"][i]["text"]["content"] +" " + string_dict["tokens"][parent]["text"]["content"])
 	return string_dict
 
 
